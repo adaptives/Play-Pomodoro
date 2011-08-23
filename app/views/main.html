@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=${_response_encoding}"/>
+        #{stylesheet src:"main.css" /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}" />
+        #{script src:"jquery-1.5.2.min.js" /}
+    </head>
+    <body>
+
+        <div id="header">
+            <div id="logo">
+                <a href="/">Pomodoro !</>
+            </div>
+            <ul id="tools">
+                <li>
+                	#{if controllers.Security.check("admin")}
+                		<a href="/admin">Admin</a>
+                	#{/if}
+                	#{if username}
+                		Welcome ${username} <a href="@{Secure.logout()}">Logout</a>                    	
+                    #{/if}
+                    #{else}
+                    	<a href="@{Secure.login()}">Log in</a>
+                    #{/else}
+                </li>
+            </ul>
+        </div>
+
+        <div id="main">
+            #{doLayout /}
+        </div>
+        <p id="footer">
+            Have fun being productive !
+        </p>
+
+    </body>
+</html>
+        

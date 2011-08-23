@@ -1,0 +1,48 @@
+<div style="float: left;">
+	<img src="${_image}" />
+</div>
+
+<div style="float: left; margin-left: 40px;">
+	<div>
+	#{form @start(), id:'task-start'}
+		<div>
+			<label for="task">&{'pomodoro.task'}</label>
+			<input type="text" name="task" id="task" />
+			#{ifError 'task'}
+				<span class="error">#{error 'task' /}</span>
+			#{/ifError}
+			<input type="submit" name="submit" value="submit" id="task-submit" />
+		</div>
+	#{/form}
+	<script type="text/javascript">
+		$('#task-start').submit(function(e) {
+			$('#activity_indicator').css('visibility', 'visible');
+			$('#done_details').css('visibility', 'hidden');
+		});		
+	</script>
+	</div>
+	<div id="done_details" style="margin-top: 20px;">
+		#{if _done}
+			<span class="success">			
+				Done - ${_done} !
+			</span>
+			<embed src="${_done_sound}" 
+		           autostart="true" 
+		           width="0" 
+		           height="0" 
+		           id="done_beep"
+		           enablejavascript="true" />
+		#{/if}
+	</div>
+	<div style="margin-top: 20px;">
+		#{if controllers.Security.isConnected()}
+			<a href="@{Application.viewPomodoros}">View all pomodoros</a>
+		#{/if}
+	</div>
+</div>
+
+<div id="activity_indicator" style=" margin-left: 20px; margin-top: 4px; float: left;">
+	<img src="${_activity_indicator}" />
+</div>
+
+<div style="clear:both;"></div>

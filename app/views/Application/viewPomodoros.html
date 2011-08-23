@@ -1,0 +1,14 @@
+#{extends 'main.html' /}
+#{set title:'View Pomodoros' /}
+<div>
+#{list items:pomodoros, as:'p'}
+	<div id="pomodoros" class="${p_parity}">
+		<span class="completed">Completed</span>
+		<span class="task_name">${p.task}</span>
+		<span>which was started at </span>
+		<span class="task_time">${p.started.format('dd MMMM yyyy hh:mm:ss')}</span>
+		<span>which was</span>
+		<span class="task_since">${p.started.since()}</span>
+	</div>
+#{/list}
+</div>

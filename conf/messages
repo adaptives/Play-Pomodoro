@@ -1,0 +1,19 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+
+# Messages for the register form 'register.html'
+register.email = Email
+register.password = Password
+register.password2 = Retype your password
+register.signup = Signup
+
+#Validation messages for the register form
+password2 = the value in 'Retype your password'
+
+#Redefining some validation messages
+validation.required = This field is required
+
+# Messages for the start task form
+pomodoro.task = Enter the task name
+
+

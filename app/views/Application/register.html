@@ -1,0 +1,46 @@
+#{extends 'main.html' /}
+#{set title:'Register' /}
+
+<div>
+	#{ifErrors}
+		<span class="error">Oops there were errors !</span>		
+	#{/ifErrors}
+</div>
+
+<div id="login">
+	
+	<h1>&{'register.title'}</h1>
+	
+	#{form @registerUser()}
+		
+		#{if flash.error}
+			<p class="error">
+				&{flash.error}
+			</p>
+		#{/if}
+		#{if flash.success}
+			<p class="success">
+				&{flash.success}
+			</p>
+		#{/if}
+	
+		<p id="username-field">
+			<label for="username">&{'register.email'}</label>
+			<input type="text" name="email" id="email" value="${flash.email}" />
+			#{ifError 'email'}<span class="error">#{error 'email' /}</span>#{/ifError}
+		</p>
+		<p id="password-field">
+			<label for="password">&{'register.password'}</label>
+			<input type="password" name="password" id="password" value="" />
+			#{ifError 'password'}<span class="error">#{error 'password' /}</span>#{/ifError}
+		</p>
+		<p id="password-field">
+			<label for="password">&{'register.password2'}</label>
+			<input type="password" name="password2" id="password2" value="" />
+		</p>
+		<p id="signin-field">
+			<input type="submit" id="signup" value="&{'register.signup'}" />
+		</p>
+	#{/form}
+
+</div>

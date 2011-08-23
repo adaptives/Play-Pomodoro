@@ -1,0 +1,14 @@
+User(admindude):
+    email:              admindude@somewhere.com
+    passwordHash:       5ebe2294ecd0e0f08eab7690d2a6ee69 #secret	
+
+    
+User(user1):
+    email:              user1@somewhere.com
+    passwordHash:       5ebe2294ecd0e0f08eab7690d2a6ee69 #secret	
+    
+    
+User(user2):
+    email:              user2@somewhere.com
+    passwordHash:       5ebe2294ecd0e0f08eab7690d2a6ee69 #secret	
+    
